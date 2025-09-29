@@ -1,0 +1,22 @@
+<main class="page__container" role="main">
+    <header
+      class="page__cover"
+      [style.background-image]="cover"
+    ></header>
+  
+    <h1 class="page__title">{{ pagina?.title }}</h1>
+  
+    <article class="page__content">
+      <iframe
+        *ngIf="pagina?.music != null"
+        width="100%"
+        height="450"
+        scrolling="no"
+        frameborder="no"
+        [src]="music"
+      ></iframe>
+  
+      <div [innerHtml]="texto"></div>
+    </article>
+  </main>
+  

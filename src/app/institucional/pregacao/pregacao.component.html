@@ -1,0 +1,44 @@
+<app-loading *ngIf="loading$ | async"></app-loading>
+
+<main class="page__container" role="main">
+    <div *ngIf="youtube != null" class="video__container">
+      <iframe
+        *ngIf="IsYoutubeVisible"
+        class="video"
+        [src]="youtube"
+        frameborder="0"
+        allowfullscreen=""
+      ></iframe>
+    </div>
+  
+    <article class="page__content">
+      <h1 class="page__title">{{ pregacao?.title }}</h1>
+      <p class="page__content__date">{{ pregacao?.date | date: "fullDate" }}</p>
+      <p class="page__content__author">
+        {{ pregacao?.preacher }}<br />
+        {{ pregacao?.verse }}
+      </p>
+  
+      <audio
+        *ngIf="IsVisibleMP3"
+        style="width: 100%"
+        [src]="mp3"
+        type="audio/mpeg"
+        controls
+        preload="metadata"
+      ></audio>
+  
+      <p>
+        <a *ngIf="IsVisibleMP3" [href]="mp3">Baixar áudio</a>
+      </p>
+  
+      <!-- <app-share tipo="Pregacoes" id="{{ pregacao.cult_id }}"></app-share> -->
+    </article>
+  
+    <nav class="pagination">
+      <a class="btn pagination__prev" [routerLink]="['/pregacoes']">
+        &lsaquo; Pregações
+      </a>
+    </nav>
+  </main>
+  

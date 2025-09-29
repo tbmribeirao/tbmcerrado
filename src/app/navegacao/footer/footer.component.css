@@ -1,0 +1,108 @@
+
+.site-footer {
+    background: #e9f8fe;
+    color: #1946aa;
+    font-size: .8em;
+    margin: 2em auto 0;
+    padding: 2em 1em 1em;
+    text-align: center
+}
+
+.page--home .site-footer {
+    margin: 0 auto
+}
+
+.site-footer span {
+    display: block;
+    height: .1em;
+    padding: 0 .25em;
+    text-indent: -9999px
+}
+
+@media (min-width: 50em) {
+    .site-footer span {
+        display: inline;
+        text-indent: 0
+    }
+}
+
+.site-footer .site-copyright {
+    color: #888
+}
+
+.site-footer .btn:focus, .site-footer .btn:hover {
+    background: #1946aa;
+    color: #eee
+}
+
+.social__list {
+    max-width: 24em;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    padding: 0
+}
+
+    .social__list:before {
+        content: '';
+        display: table
+    }
+
+    .social__list:after {
+        content: '';
+        display: table;
+        clear: both
+    }
+
+    .social__list:before {
+        content: '';
+        display: table
+    }
+
+    .social__list:after {
+        content: '';
+        display: table;
+        clear: both
+    }
+
+    .social__list a {
+        display: block;
+        text-decoration: none
+    }
+
+.social__item {
+    float: left;
+    width: 25%
+}
+
+.icon {
+    display: inline-block;
+    height: 3em;
+    margin: 0;
+    padding: 0;
+    width: 3em
+}
+
+.icon--facebook {
+    background: url("../../../assets/home/facebook.svg") no-repeat
+}
+
+.icon--instagram {
+    background: url("../../../assets/home/instagram.svg") no-repeat
+}
+
+.icon--twitter {
+    background: url("../../../assets/home/twitter.svg") no-repeat
+}
+
+.icon--youtube {
+    background: url("../../../assets/home/youtube.svg") no-repeat
+}
+
+.icon--search {
+    background: url("../../../assets/home/search.svg") no-repeat
+}
+
+.icon--whatsapp {
+    background: url("../../../assets/home/whatsapp.svg") no-repeat
+}

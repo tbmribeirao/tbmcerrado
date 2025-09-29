@@ -1,0 +1,63 @@
+<header class="site-header" role="banner">
+    <a [routerLink]="['/']" class="site-title">
+        <img src="../../../assets/home/logo.svg" class="site-title__logo" alt="Templo Batista Maranata">
+    </a>
+    <nav class="site-nav site-nav--main" role="navigation">
+        <ul>
+            <li class="site-nav__item">
+                <a class="button-menu" (click)="openMenu('know-overlay')">Quem Somos</a>
+                <div id="know-overlay" class="site-nav__overlay">
+                    <button type="button" class="site-nav__overlay__close" (click)="closeMenu('know-overlay')">&times;</button>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a [routerLink]="['/pagina', 'visita']" (click)="closeMenu('know-overlay')">Primeira Visita</a>
+                                <a [routerLink]="['/pagina', 'história']" (click)="closeMenu('know-overlay')" >Nossa História</a>
+                                <a [routerLink]="['/pagina', 'igrejas']" (click)="closeMenu('know-overlay')" >Nossas Igrejas</a>
+                                <a [routerLink]="['/pagina', 'crenças']" (click)="closeMenu('know-overlay')" >Nossas Crenças</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </li>
+
+            <li class="site-nav__item">
+                <a class="button-menu" (click)="openMenu('menu-conheca')">Conheça</a>
+                <div id="menu-conheca" class="site-nav__overlay">
+                    <button type="button" class="site-nav__overlay__close" (click)="closeMenu('menu-conheca')">&times;</button>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a [routerLink]="['/pagina', 'caminho']" (click)="closeMenu('menu-conheca')" >O Caminho para o Céu</a>
+                                <a [routerLink]="['/pagina', 'rádio']" (click)="closeMenu('menu-conheca')" >Rádio Online</a>
+                                <a [routerLink]="['/pagina', 'músicas']" (click)="closeMenu('menu-conheca')" >Músicas</a>
+                                <a [routerLink]="['/pagina', 'missões']" (click)="closeMenu('menu-conheca')" >Projeto Antioquia</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </li>
+
+            <li class="site-nav__item">
+                <a class="button-menu" (click)="openMenu('menu-cresca')">Cresça</a>
+                <div id="menu-cresca" class="site-nav__overlay">
+                    <button type="button" class="site-nav__overlay__close" (click)="closeMenu('menu-cresca')" >&times;</button>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a [routerLink]="['/pagina', 'oração']"   (click)="closeMenu('menu-cresca')">Oração</a>
+                                <a [routerLink]="['/pregacoes']" (click)="closeMenu('menu-cresca')">Pregações</a>
+                                <a [routerLink]="['/palavras']"  (click)="closeMenu('menu-cresca')">Palavras do Pastor</a>
+                                <a [routerLink]="['/pandemia']" (click)="closeMenu('menu-cresca')">Mensagens Durante uma Pandemia</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </li>
+
+            <li class="site-nav__item">
+                <a class="button-menu" [routerLink]="['/pagina', 'Doações']">Doações</a>
+            </li>
+        </ul>
+    </nav>
+</header>

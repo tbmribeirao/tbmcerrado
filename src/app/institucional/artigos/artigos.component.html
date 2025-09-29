@@ -1,0 +1,34 @@
+<main class="page__container" role="main">
+  <header class="page__cover" [style.background-image]="cover"></header>
+
+  <h1 class="page__title">{{ pagina?.title }}</h1>
+
+  <div class="div-form">
+    <div class="form form--search">
+      <input class="form__control form__control--search" type="text" name="search" placeholder="Pesquisar Pregações"
+        (keyup)="getArtigos()" [(ngModel)]="searchText" />
+      <button class="btn btn--search">
+        <i class="icon icon--search"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="start"></div>
+  <app-loading *ngIf="loading$ | async"></app-loading>
+
+  <article class="page__content">
+    <div *ngFor="let artigo of artigos">
+      <h2 class="entry__title">
+        <a [routerLink]="['/palavra', artigo.article_id]">{{ artigo.title }}</a>
+      </h2>
+      <p class="entry__date">
+        {{ artigo.date | date: "fullDate" }}<br />
+        {{ artigo.author }} | {{ artigo.verse }}
+      </p>
+    </div>
+  </article>
+
+
+  <app-paginacao qtyItems="{{ qtyItems }}" pageSize="{{ pageSize }}" pageNumber="{{ pageNumber }}"
+    (newPageNumber)="getArtigos($event)"></app-paginacao>
+</main>

@@ -1,0 +1,196 @@
+.site-header {
+    background: #1946aa;
+    background: url("../../../assets/home/Cover-HomePage.jpg") no-repeat center center;
+    background-size: cover;
+    border-top: 4px solid #f1b80d;
+    height: 35%;
+    position: relative;
+    width: 100%;
+  }
+  
+  @media (min-width: 45em) {
+    .site-header {
+      height: 30%;
+      min-height: 16em;
+    }
+  }
+  
+  .site-title {
+    display: block;
+    padding-top: 3em;
+  }
+  
+  @media (max-height: 22em) {
+    .site-title {
+      padding-top: 1em;
+    }
+  }
+  
+  .site-title__logo {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  @media (min-width: 40em) {
+    .site-title__logo {
+      max-width: 30em;
+    }
+  }
+  
+  .site-nav--main {
+    margin-left: auto;
+    margin-right: auto;
+    background: #f1b80d;
+    opacity: 0.9;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  
+  .site-nav a {
+    text-decoration: none;
+  }
+  
+  .site-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  /* Menu Items*/
+  
+  .site-nav__item {
+    width: 25%;
+    float: left;
+  }
+  
+  .site-nav__item a{
+    color: #1946aa;
+    display: block;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.75em;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .site-nav__item a:hover,
+  .site-nav__item a:focus {
+    color: #0f2b67;
+    background: #ca9a0b;
+  }
+  
+  @media (max-width: 768px) {
+    .site-nav__item {
+      width: 50%;
+    }
+  
+    .site-nav__item a {
+      padding: 0.5em 0.25em;
+    }
+  }
+  
+  /* Menu Items end*/
+  
+  /* Overlay Header */
+  
+  .site-nav__overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(25, 70, 170, 0.9);
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.2s, transform 0.2s, visibility 0s 0.2s;
+  }
+  
+  .site-nav__overlay nav {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .site-nav__overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+  }
+  
+  .site-nav__overlay ul li {
+    display: block;
+    height: 20%;
+    height: calc(100% / 5);
+    min-height: 3em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .site-nav__overlay ul li a {
+    font-size: 1.2em;
+    font-weight: 300;
+    display: block;
+    color: #f0f0f0;
+    transition: background 0.2s color 0.2s;
+  }
+  
+  .site-nav__overlay ul li a:hover,
+  .site-nav__overlay ul li a:focus {
+    background: #0c2151;
+    color: #f1b80d;
+  }
+  
+  @media (min-width: 30em) {
+    .site-nav__overlay ul li a {
+      font-size: 1.5em;
+    }
+  }
+  
+  @media (min-width: 50em) {
+    .site-nav__overlay ul li a {
+      font-size: 1.8em;
+    }
+  }
+  
+  .site-nav__overlay.site-nav__overlay--open {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  
+  .site-nav__overlay__close {
+    color: #f1b80d;
+    font-size: 60px;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+    z-index: 9999;
+  }
+  
+  .site-nav__overlay__close:hover {
+    cursor: pointer;
+  }
+  
+  @media (min-width: 60em) {
+    .site-nav__overlay__close {
+      bottom: inherit;
+      top: 0;
+    }
+  }
+  /* Overlay Header End */
+  

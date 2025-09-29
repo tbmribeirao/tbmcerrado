@@ -1,0 +1,42 @@
+<main class="page__container" role="main">
+  <div>
+    <form class="form form--search" asp-controller="Pesquisa" asp-action="Index" method="post">
+      <input class="form__control form__control--search" type="search" name="Text" placeholder="Pesquisar Pregações"
+        required>
+      <button class="btn btn--search" type="submit"><i class="icon icon--search"></i></button>
+    </form>
+
+    <article class="page__content">
+
+      <h1 class="page__title">Pregações</h1>
+
+      <app-loading *ngIf="loading$ | async"></app-loading>
+
+      <div *ngFor="let pregacao of pregacoes">
+        <h2 class="entry__title">
+          <a [routerLink]="['/pregacoes', pregacao.cult_id]">{{ pregacao.title }}</a>
+        </h2>
+        <p class="entry__date">
+          {{ pregacao.date | date: "fullDate" }}<br />
+          {{ pregacao.preacher }} | {{ pregacao.verse }}
+        </p>
+      </div>
+
+
+      <h1 class="page__title">Artigos</h1>
+
+      <app-loading *ngIf="loading$ | async"></app-loading>
+
+      <div *ngFor="let artigo of artigos">
+        <h2 class="entry__title">
+          <a [routerLink]="['/palavra', artigo.article_id]">{{ artigo.title }}</a>
+        </h2>
+        <p class="entry__date">
+          {{ artigo.date | date: "fullDate" }}<br />
+          {{ artigo.author }} | {{ artigo.verse }}
+        </p>
+      </div>
+    </article>
+
+  </div>
+</main>

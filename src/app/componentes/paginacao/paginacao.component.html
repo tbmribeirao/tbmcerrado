@@ -1,0 +1,26 @@
+<nav class="pagination">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [ngClass]="{ disabled: blockPagePreview }">
+        <a
+          class="btn page-link"
+          tabindex="-1"
+          aria-disabled="true"
+          (click)="setPage(pagePreview)"         
+          >Anterior</a
+        >
+      </li>
+      <li class="page-item" [ngClass]="{ disabled: blockPageNext }">
+        <a class="btn page-link" (click)="setPage(pageNext)">{{ pageNext }}</a>
+      </li>
+      <li class="page-item" [ngClass]="{ disabled: blockPageNext2 }">
+        <a class="btn page-link" (click)="setPage(pageNext2)">{{ pageNext2 }}</a>
+      </li>
+      <li class="page-item" [ngClass]="{ disabled: blockPageNext3 }">
+        <a class="btn page-link" (click)="setPage(pageNext3)">{{ pageNext3 }}</a>
+      </li>
+      <li class="page-item" [ngClass]="{ disabled: blockPageNext }">
+        <a class="btn page-link" (click)="setPage(pageNext)">Próximo</a>
+      </li>
+    </ul>
+  </nav>
+  
