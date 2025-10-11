@@ -13,7 +13,7 @@ export class ArtigoService {
 
     private MyParameters: HttpParams;
 
-    GetArtigos(tema?: number, id?: string, pageSize?: number, pageNumber?: number, search?: string): Observable<Artigos> {       
+    GetArtigos(tema?: number, id?: string, pageSize?: number, pageNumber?: number, search?: string): Observable<Artigos> {
         this.MyParameters = new HttpParams();
 
         if (tema != undefined)
@@ -31,7 +31,7 @@ export class ArtigoService {
         if (search != undefined)
             this.MyParameters = this.MyParameters.append('search', search);
 
-        return this.http.get<Artigos>(`${this.UrlService}igreja/1/artigos`, { params: this.MyParameters });
-    }    
+        return this.http.get<Artigos>(`${this.UrlService}igreja/11/artigos`, { params: this.MyParameters });
+    }
 }
 

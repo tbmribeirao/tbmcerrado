@@ -35,6 +35,6 @@ export class PregacaoService {
         if (search != undefined)
             this.MyParameters = this.MyParameters.append('search', search);
 
-        return this.http.get<Pregacoes>(`${this.UrlService}igreja/1/cultos`, { params: this.MyParameters });
+        return this.http.get<Pregacoes>(`${this.UrlService}igreja/11/cultos`, { params: this.MyParameters });
     }
 }

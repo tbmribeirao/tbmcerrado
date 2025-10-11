@@ -12,7 +12,7 @@ export class PaginaService {
     protected UrlService : string = environment.apiUrl;
 
     GetPage(name: string): Observable<Pagina>{
-        
-        return this.http.get<Pagina>(`${this.UrlService}igreja/1/pagina/${name}` )
+
+        return this.http.get<Pagina>(`${this.UrlService}igreja/11/pagina/${name}` )
     }
 }
