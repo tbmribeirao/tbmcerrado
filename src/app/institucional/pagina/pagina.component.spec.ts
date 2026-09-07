@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 import { PaginaComponent } from './pagina.component';
+import { PaginaService } from '../../servicos/pagina/pagina.service';
 
 describe('PaginaComponent', () => {
   let component: PaginaComponent;
@@ -8,7 +13,12 @@ describe('PaginaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaginaComponent ]
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [ PaginaComponent ],
+      providers: [
+        PaginaService,
+        { provide: ActivatedRoute, useValue: { params: of({ name: 'quem-somos' }) } }
+      ]
     })
     .compileComponents();
   });
