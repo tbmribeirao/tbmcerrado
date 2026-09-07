@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { PandemiaComponent } from './pandemia.component';
 import { PaginacaoComponent } from '../../componentes/paginacao/paginacao.component';
@@ -15,7 +16,7 @@ describe('PandemiaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
     declarations: [PandemiaComponent, PaginacaoComponent],
-    imports: [RouterTestingModule],
+    imports: [RouterTestingModule, FormsModule],
     providers: [PaginaService, PregacaoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
 import { LoadingComponent } from '../../componentes/loading/loading.component';
@@ -15,7 +16,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
     declarations: [HomeComponent, LoadingComponent],
-    imports: [RouterTestingModule],
+    imports: [RouterTestingModule, FormsModule],
     providers: [ArtigoService, PregacaoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();
