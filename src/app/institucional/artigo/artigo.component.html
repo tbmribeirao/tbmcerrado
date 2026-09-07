@@ -1,4 +1,6 @@
-<app-loading *ngIf="loading$ | async"></app-loading>
+@if (loading$ | async) {
+  <app-loading></app-loading>
+}
 <main class="page__container" role="main">
 
   <header class="page__cover" [style.background-image]="Cover"></header>
