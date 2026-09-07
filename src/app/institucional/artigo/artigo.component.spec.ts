@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { ArtigoComponent } from './artigo.component';
 import { LoadingComponent } from '../../componentes/loading/loading.component';
 import { ArtigoService } from '../../servicos/artigo/artigo.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ArtigoComponent', () => {
   let component: ArtigoComponent;
@@ -14,13 +15,15 @@ describe('ArtigoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [ ArtigoComponent, LoadingComponent ],
-      providers: [
+    declarations: [ArtigoComponent, LoadingComponent],
+    imports: [RouterTestingModule],
+    providers: [
         ArtigoService,
-        { provide: ActivatedRoute, useValue: { params: of({ id: '1' }) } }
-      ]
-    })
+        { provide: ActivatedRoute, useValue: { params: of({ id: '1' }) } },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   });
 

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ArtigosComponent } from './artigos.component';
@@ -7,6 +7,7 @@ import { LoadingComponent } from '../../componentes/loading/loading.component';
 import { PaginacaoComponent } from '../../componentes/paginacao/paginacao.component';
 import { ArtigoService } from '../../servicos/artigo/artigo.service';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ArtigosComponent', () => {
   let component: ArtigosComponent;
@@ -14,10 +15,10 @@ describe('ArtigosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [ ArtigosComponent, LoadingComponent, PaginacaoComponent ],
-      providers: [ ArtigoService, PaginaService ]
-    })
+    declarations: [ArtigosComponent, LoadingComponent, PaginacaoComponent],
+    imports: [RouterTestingModule],
+    providers: [ArtigoService, PaginaService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   });
 

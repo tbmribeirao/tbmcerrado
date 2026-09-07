@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { PaginaComponent } from './pagina.component';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('PaginaComponent', () => {
   let component: PaginaComponent;
@@ -13,13 +14,15 @@ describe('PaginaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [ PaginaComponent ],
-      providers: [
+    declarations: [PaginaComponent],
+    imports: [RouterTestingModule],
+    providers: [
         PaginaService,
-        { provide: ActivatedRoute, useValue: { params: of({ name: 'quem-somos' }) } }
-      ]
-    })
+        { provide: ActivatedRoute, useValue: { params: of({ name: 'quem-somos' }) } },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+})
     .compileComponents();
   });
 
