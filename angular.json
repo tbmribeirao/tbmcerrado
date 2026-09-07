@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tbm-app:build:production"
+              "buildTarget": "tbm-app:build:production"
             },
             "development": {
-              "browserTarget": "tbm-app:build:development"
+              "buildTarget": "tbm-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tbm-app:build"
+            "buildTarget": "tbm-app:build"
           }
         },
         "test": {
