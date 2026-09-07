@@ -1,7 +1,7 @@
 import { LoadingService } from './../../servicos/loading/loading.service';
 import { PregacaoService } from 'src/app/servicos/pregacao/pregacao.service';
 import { Pregacao } from './../../servicos/pregacao/pregacao';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ArtigoService } from './../../servicos/artigo/artigo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Artigo } from 'src/app/servicos/artigo/artigo';
@@ -10,6 +10,7 @@ import { Artigo } from 'src/app/servicos/artigo/artigo';
     selector: 'app-conteudos',
     templateUrl: './conteudos.component.html',
     styleUrls: ['./conteudos.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ConteudosComponent implements OnInit {

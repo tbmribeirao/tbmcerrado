@@ -7,7 +7,7 @@ import { LoadingComponent } from '../../componentes/loading/loading.component';
 import { PaginacaoComponent } from '../../componentes/paginacao/paginacao.component';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
 import { PregacaoService } from '../../servicos/pregacao/pregacao.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('PregacoesComponent', () => {
   let component: PregacoesComponent;
@@ -17,7 +17,7 @@ describe('PregacoesComponent', () => {
     await TestBed.configureTestingModule({
     declarations: [PregacoesComponent, LoadingComponent, PaginacaoComponent],
     imports: [RouterTestingModule],
-    providers: [PaginaService, PregacaoService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    providers: [PaginaService, PregacaoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();
   });

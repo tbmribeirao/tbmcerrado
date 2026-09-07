@@ -4,12 +4,13 @@ import { Artigos, Artigo } from '../../servicos/artigo/artigo';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
 import { Pagina } from 'src/app/servicos/pagina/pagina';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-artigos',
     templateUrl: './artigos.component.html',
     styleUrls: ['./artigos.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

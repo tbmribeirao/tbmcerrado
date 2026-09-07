@@ -7,7 +7,7 @@ import { LoadingComponent } from '../../componentes/loading/loading.component';
 import { PaginacaoComponent } from '../../componentes/paginacao/paginacao.component';
 import { ArtigoService } from '../../servicos/artigo/artigo.service';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('ArtigosComponent', () => {
   let component: ArtigosComponent;
@@ -17,7 +17,7 @@ describe('ArtigosComponent', () => {
     await TestBed.configureTestingModule({
     declarations: [ArtigosComponent, LoadingComponent, PaginacaoComponent],
     imports: [RouterTestingModule],
-    providers: [ArtigoService, PaginaService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    providers: [ArtigoService, PaginaService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();
   });

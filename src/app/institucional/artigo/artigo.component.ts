@@ -3,12 +3,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Artigo } from './../../servicos/artigo/artigo'
 import { ArtigoService } from './../../servicos/artigo/artigo.service'
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-artigo',
     templateUrl: './artigo.component.html',
     styleUrls: ['./artigo.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ArtigoComponent implements OnInit {

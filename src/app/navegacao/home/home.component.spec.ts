@@ -6,7 +6,7 @@ import { HomeComponent } from './home.component';
 import { LoadingComponent } from '../../componentes/loading/loading.component';
 import { ArtigoService } from '../../servicos/artigo/artigo.service';
 import { PregacaoService } from '../../servicos/pregacao/pregacao.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -16,7 +16,7 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
     declarations: [HomeComponent, LoadingComponent],
     imports: [RouterTestingModule],
-    providers: [ArtigoService, PregacaoService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    providers: [ArtigoService, PregacaoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();
   });

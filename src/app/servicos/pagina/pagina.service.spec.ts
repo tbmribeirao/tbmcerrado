@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { PaginaService } from './pagina.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('PaginaService', () => {
   let service: PaginaService;
@@ -10,7 +10,7 @@ describe('PaginaService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
     imports: [],
-    providers: [PaginaService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    providers: [PaginaService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 });
     service = TestBed.inject(PaginaService);
   });

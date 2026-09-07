@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 
 import { PaginaComponent } from './pagina.component';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('PaginaComponent', () => {
   let component: PaginaComponent;
@@ -19,7 +19,7 @@ describe('PaginaComponent', () => {
     providers: [
         PaginaService,
         { provide: ActivatedRoute, useValue: { params: of({ name: 'quem-somos' }) } },
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting()
     ]
 })

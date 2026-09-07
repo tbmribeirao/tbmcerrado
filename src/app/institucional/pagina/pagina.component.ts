@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Pagina } from '../../servicos/pagina/pagina';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     selector: 'app-pagina',
     templateUrl: './pagina.component.html',
     styleUrls: ['./pagina.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PaginaComponent implements OnInit {

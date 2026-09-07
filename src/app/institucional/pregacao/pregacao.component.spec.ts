@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 import { PregacaoComponent } from './pregacao.component';
 import { LoadingComponent } from '../../componentes/loading/loading.component';
 import { PregacaoService } from '../../servicos/pregacao/pregacao.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('PregacaoComponent', () => {
   let component: PregacaoComponent;
@@ -20,7 +20,7 @@ describe('PregacaoComponent', () => {
     providers: [
         PregacaoService,
         { provide: ActivatedRoute, useValue: { params: of({ id: '1' }) } },
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting()
     ]
 })

@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 import { ArtigoComponent } from './artigo.component';
 import { LoadingComponent } from '../../componentes/loading/loading.component';
 import { ArtigoService } from '../../servicos/artigo/artigo.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('ArtigoComponent', () => {
   let component: ArtigoComponent;
@@ -20,7 +20,7 @@ describe('ArtigoComponent', () => {
     providers: [
         ArtigoService,
         { provide: ActivatedRoute, useValue: { params: of({ id: '1' }) } },
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting()
     ]
 })

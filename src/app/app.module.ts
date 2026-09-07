@@ -18,7 +18,7 @@ import { PregacaoComponent } from './institucional/pregacao/pregacao.component';
 import { PregacoesComponent } from './institucional/pregacoes/pregacoes.component';
 import { PaginacaoComponent } from './componentes/paginacao/paginacao.component';
 import { FormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { registerLocaleData } from '@angular/common';
@@ -54,6 +54,6 @@ registerLocaleData(localeBr, 'pt');
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: LOCALE_ID, useValue: 'pt' },
         { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptorService, multi: true },
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withXhr(), withInterceptorsFromDi())
     ] })
 export class AppModule { }

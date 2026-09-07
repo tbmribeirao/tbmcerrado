@@ -6,7 +6,7 @@ import { PandemiaComponent } from './pandemia.component';
 import { PaginacaoComponent } from '../../componentes/paginacao/paginacao.component';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
 import { PregacaoService } from '../../servicos/pregacao/pregacao.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('PandemiaComponent', () => {
   let component: PandemiaComponent;
@@ -16,7 +16,7 @@ describe('PandemiaComponent', () => {
     await TestBed.configureTestingModule({
     declarations: [PandemiaComponent, PaginacaoComponent],
     imports: [RouterTestingModule],
-    providers: [PaginaService, PregacaoService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    providers: [PaginaService, PregacaoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 })
     .compileComponents();
   });
