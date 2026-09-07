@@ -5,9 +5,10 @@ import { Pagina } from '../../servicos/pagina/pagina';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-pagina',
-  templateUrl: './pagina.component.html',
-  styleUrls: ['./pagina.component.css']
+    selector: 'app-pagina',
+    templateUrl: './pagina.component.html',
+    styleUrls: ['./pagina.component.css'],
+    standalone: false
 })
 export class PaginaComponent implements OnInit {
 

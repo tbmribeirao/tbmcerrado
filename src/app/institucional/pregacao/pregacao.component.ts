@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
 import { Pregacao } from '../../servicos/pregacao/pregacao';
 
 @Component({
-  selector: 'app-pregacao',
-  templateUrl: './pregacao.component.html',
-  styleUrls: ['pregacao.component.css'
-  ]
+    selector: 'app-pregacao',
+    templateUrl: './pregacao.component.html',
+    styleUrls: ['pregacao.component.css'
+    ],
+    standalone: false
 })
 export class PregacaoComponent implements OnInit {
 

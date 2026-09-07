@@ -7,9 +7,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Artigo } from 'src/app/servicos/artigo/artigo';
 
 @Component({
-  selector: 'app-conteudos',
-  templateUrl: './conteudos.component.html',
-  styleUrls: ['./conteudos.component.css']
+    selector: 'app-conteudos',
+    templateUrl: './conteudos.component.html',
+    styleUrls: ['./conteudos.component.css'],
+    standalone: false
 })
 export class ConteudosComponent implements OnInit {
 

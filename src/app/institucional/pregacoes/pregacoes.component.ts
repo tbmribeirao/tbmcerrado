@@ -8,9 +8,10 @@ import { PregacaoService } from 'src/app/servicos/pregacao/pregacao.service';
 import { Pregacao } from 'src/app/servicos/pregacao/pregacao';
 
 @Component({
-  selector: 'app-pregacoes',
-  templateUrl: './pregacoes.component.html',
-  styleUrls: ['./pregacoes.component.css']
+    selector: 'app-pregacoes',
+    templateUrl: './pregacoes.component.html',
+    styleUrls: ['./pregacoes.component.css'],
+    standalone: false
 })
 export class PregacoesComponent implements OnInit {
 

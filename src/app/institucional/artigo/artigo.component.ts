@@ -6,9 +6,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-artigo',
-  templateUrl: './artigo.component.html',
-  styleUrls: ['./artigo.component.css']
+    selector: 'app-artigo',
+    templateUrl: './artigo.component.html',
+    styleUrls: ['./artigo.component.css'],
+    standalone: false
 })
 export class ArtigoComponent implements OnInit {
 

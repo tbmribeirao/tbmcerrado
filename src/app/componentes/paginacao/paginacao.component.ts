@@ -2,9 +2,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
-  selector: 'app-paginacao',
-  templateUrl: './paginacao.component.html',
-  styleUrls: ['./paginacao.component.css']
+    selector: 'app-paginacao',
+    templateUrl: './paginacao.component.html',
+    styleUrls: ['./paginacao.component.css'],
+    standalone: false
 })
 export class PaginacaoComponent implements OnInit {
 

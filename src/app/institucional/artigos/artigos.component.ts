@@ -7,9 +7,10 @@ import { Pagina } from 'src/app/servicos/pagina/pagina';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-artigos',
-  templateUrl: './artigos.component.html',
-  styleUrls: ['./artigos.component.css']
+    selector: 'app-artigos',
+    templateUrl: './artigos.component.html',
+    styleUrls: ['./artigos.component.css'],
+    standalone: false
 })
 
 export class ArtigosComponent implements OnInit {

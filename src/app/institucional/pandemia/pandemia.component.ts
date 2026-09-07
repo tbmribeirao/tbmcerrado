@@ -7,9 +7,10 @@ import { PregacaoService } from 'src/app/servicos/pregacao/pregacao.service';
 import { Pregacao } from 'src/app/servicos/pregacao/pregacao';
 
 @Component({
-  selector: 'app-pandemia',
-  templateUrl: './pandemia.component.html',
-  styleUrls: ['./pandemia.component.css']
+    selector: 'app-pandemia',
+    templateUrl: './pandemia.component.html',
+    styleUrls: ['./pandemia.component.css'],
+    standalone: false
 })
 export class PandemiaComponent implements OnInit {
 
