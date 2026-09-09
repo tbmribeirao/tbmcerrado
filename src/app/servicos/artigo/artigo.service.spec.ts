@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { ArtigoService } from './artigo.service';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('ArtigoService', () => {
   let service: ArtigoService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+    imports: [],
+    providers: [ArtigoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(ArtigoService);
   });
 

@@ -7,26 +7,30 @@
     <div class="form form--search">
       <input class="form__control form__control--search" type="text" name="search" placeholder="Pesquisar Pregações"
         (keyup)="getPregacoes()" [(ngModel)]="searchText" />
-      <button class="btn btn--search">
-        <i class="icon icon--search"></i>
-      </button>
+        <button class="btn btn--search">
+          <i class="icon icon--search"></i>
+        </button>
+      </div>
     </div>
-  </div>
 
-  <article id="inicio" class="page__content">
-    <app-loading *ngIf="loading$ | async"></app-loading>
+    <article id="inicio" class="page__content">
+      @if (loading$ | async) {
+        <app-loading></app-loading>
+      }
 
-    <div *ngFor="let pregacao of pregacoes">
-      <h2 class="entry__title">
-        <a [routerLink]="['/pregacoes', pregacao.cult_id]">{{ pregacao.title }}</a>
-      </h2>
-      <p class="entry__date">
-        {{ pregacao.date | date: "fullDate" }}<br />
-        {{ pregacao.preacher }} | {{ pregacao.verse }}
-      </p>
-    </div>
-  </article>
+      @for (pregacao of pregacoes; track pregacao) {
+        <div>
+          <h2 class="entry__title">
+            <a [routerLink]="['/pregacoes', pregacao.cult_id]">{{ pregacao.title }}</a>
+          </h2>
+          <p class="entry__date">
+            {{ pregacao.date | date: "fullDate" }}<br />
+            {{ pregacao.preacher }} | {{ pregacao.verse }}
+          </p>
+        </div>
+      }
+    </article>
 
-  <app-paginacao qtyItems="{{ qtyItems }}" pageSize="{{ pageSize }}" pageNumber="{{ pageNumber }}"
+    <app-paginacao qtyItems="{{ qtyItems }}" pageSize="{{ pageSize }}" pageNumber="{{ pageNumber }}"
     (newPageNumber)="getPregacoes($event)"></app-paginacao>
-</main>
+  </main>

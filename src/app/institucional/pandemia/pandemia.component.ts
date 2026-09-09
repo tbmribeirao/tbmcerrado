@@ -2,14 +2,16 @@ import { Pregacoes } from './../../servicos/pregacao/pregacao';
 import { Pagina } from '../../servicos/pagina/pagina';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PaginaService } from '../../servicos/pagina/pagina.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PregacaoService } from 'src/app/servicos/pregacao/pregacao.service';
 import { Pregacao } from 'src/app/servicos/pregacao/pregacao';
 
 @Component({
-  selector: 'app-pandemia',
-  templateUrl: './pandemia.component.html',
-  styleUrls: ['./pandemia.component.css']
+    selector: 'app-pandemia',
+    templateUrl: './pandemia.component.html',
+    styleUrls: ['./pandemia.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class PandemiaComponent implements OnInit {
 

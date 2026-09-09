@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { PandemiaComponent } from './pandemia.component';
+import { PaginacaoComponent } from '../../componentes/paginacao/paginacao.component';
+import { PaginaService } from '../../servicos/pagina/pagina.service';
+import { PregacaoService } from '../../servicos/pregacao/pregacao.service';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('PandemiaComponent', () => {
   let component: PandemiaComponent;
@@ -8,8 +15,10 @@ describe('PandemiaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PandemiaComponent ]
-    })
+    declarations: [PandemiaComponent, PaginacaoComponent],
+    imports: [RouterTestingModule, FormsModule],
+    providers: [PaginaService, PregacaoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   });
 

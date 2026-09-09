@@ -1,10 +1,12 @@
-<app-loading *ngIf="loading$ | async"></app-loading>
+@if (loading$ | async) {
+  <app-loading></app-loading>
+}
 <main class="page__container" role="main">
 
   <header class="page__cover" [style.background-image]="Cover"></header>
   <h1 class="page__title">{{ Artigo?.title }}</h1>
   <article class="page__content">
-    <div class="texto-artigo" [innerHtml]="Artigo?.text"></div>
+    <div class="texto-artigo" [innerHtml]="$safeNavigationMigration(Artigo?.text)"></div>
 
     <!-- <app-share tipo="palavra" id="{{Artigo.article_id}}"></app-share> -->
 

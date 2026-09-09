@@ -18,7 +18,7 @@ import { PregacaoComponent } from './institucional/pregacao/pregacao.component';
 import { PregacoesComponent } from './institucional/pregacoes/pregacoes.component';
 import { PaginacaoComponent } from './componentes/paginacao/paginacao.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { registerLocaleData } from '@angular/common';
@@ -29,37 +29,31 @@ import { NotfoundComponent } from './institucional/notfound/notfound.component';
 import { LoadingComponent } from './componentes/loading/loading.component';
 registerLocaleData(localeBr, 'pt');
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HomeComponent,
-    MenuComponent,
-    ArtigoComponent,
-    ArtigosComponent,
-    PaginaComponent,
-    PregacaoComponent,
-    PregacoesComponent,
-    PaginacaoComponent,
-    ConteudosComponent,
-    PandemiaComponent,
-    NotfoundComponent,
-    LoadingComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    [RouterModule.forRoot(rootRouterConfig, { scrollPositionRestoration: 'enabled' })]
-  ],
-  providers: [
-    PaginaService,
-    ArtigoService,
-    PregacaoService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: LOCALE_ID, useValue: 'pt' },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptorService, multi: true}
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        FooterComponent,
+        HomeComponent,
+        MenuComponent,
+        ArtigoComponent,
+        ArtigosComponent,
+        PaginaComponent,
+        PregacaoComponent,
+        PregacoesComponent,
+        PaginacaoComponent,
+        ConteudosComponent,
+        PandemiaComponent,
+        NotfoundComponent,
+        LoadingComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        [RouterModule.forRoot(rootRouterConfig, { scrollPositionRestoration: 'enabled' })]], providers: [
+        PaginaService,
+        ArtigoService,
+        PregacaoService,
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        { provide: LOCALE_ID, useValue: 'pt' },
+        { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptorService, multi: true },
+        provideHttpClient(withXhr(), withInterceptorsFromDi())
+    ] })
 export class AppModule { }

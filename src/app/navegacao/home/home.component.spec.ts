@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
+import { LoadingComponent } from '../../componentes/loading/loading.component';
+import { ArtigoService } from '../../servicos/artigo/artigo.service';
+import { PregacaoService } from '../../servicos/pregacao/pregacao.service';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,8 +15,10 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
-    })
+    declarations: [HomeComponent, LoadingComponent],
+    imports: [RouterTestingModule, FormsModule],
+    providers: [ArtigoService, PregacaoService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   });
 

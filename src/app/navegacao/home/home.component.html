@@ -1,66 +1,70 @@
 <section class="section section--highlights">
-    <div class="section__item">
-        <img class="section__cover" src="../../../assets/home/relogio-800x420-q70.jpg">
-        <p class="section__content">
-            Domingo às 9h e 19h
-            <br>
-            Quarta às 19h30min
-            <br>
-            <a [routerLink]="['/pagina', 'visita']" href="#como-chegar" class="btn">Como Chegar?</a>
+  <div class="section__item">
+    <img class="section__cover" src="../../../assets/home/relogio-800x420-q70.jpg">
+    <p class="section__content">
+      Domingo às 9h e 19h
+      <br>
+        Quarta às 19h30min
+        <br>
+          <a [routerLink]="['/pagina', 'visita']" href="#como-chegar" class="btn">Como Chegar?</a>
         </p>
-    </div>
-    <div class="section__item">
+      </div>
+      <div class="section__item">
         <img class="section__cover" src="../../../assets/home/familia-800x420-q70.jpg">
         <p class="section__content">
-            Um lugar de adoração a Deus, instrução bíblica e relacionamentos duradouros!
-            <br />
-            <a [routerLink]="['/pagina', 'visita']" class="btn">Quero Visitar</a>
+          Um lugar de adoração a Deus, instrução bíblica e relacionamentos duradouros!
+          <br />
+          <a [routerLink]="['/pagina', 'visita']" class="btn">Quero Visitar</a>
         </p>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section class="section section--maranatha">
-    <div class="section__item">
+    <section class="section section--maranatha">
+      <div class="section__item">
         <h1 class="section__title">Maranata significa <em>“Nosso&nbsp;Senhor&nbsp;vem!”</em></h1>
         <p class="section__content">Nosso nome é uma oração, também encontrada no desfecho do livro do <a
-                href="https://www.bibliaonline.com.br/acf/ap/22/20" title="Apocalipse 22:20"
-                target="_blank">Apocalipse</a>, no capítulo 22 versículo 20: <em>“Certamente cedo venho. Amém. Ora vem,
-                Senhor Jesus”.</em></p>
+          href="https://www.bibliaonline.com.br/acf/ap/22/20" title="Apocalipse 22:20"
+        target="_blank">Apocalipse</a>, no capítulo 22 versículo 20: <em>“Certamente cedo venho. Amém. Ora vem,
+      Senhor Jesus”.</em></p>
     </div>
-</section>
+  </section>
 
-<section class="section section--latest">
+  <section class="section section--latest">
 
     <div class="section__item section__item--preaching">
 
-        <app-loading *ngIf="loading$ | async "></app-loading>
+      @if (loading$ | async ) {
+        <app-loading></app-loading>
+      }
 
-        <a class="section__link" [routerLink]="['/pregacoes', pregacao?.cult_id]">
-            <h2 class="section__name">Pregações</h2>
-            <h1 class="section__title">{{pregacao?.title}}</h1>
-            <span class="section__meta date">{{pregacao?.date | date: "fullDate"}}</span>
-            <span class="section__meta author">{{pregacao?.preacher}}</span>
-        </a>
+      <a class="section__link" [routerLink]="['/pregacoes', $safeNavigationMigration(pregacao?.cult_id)]">
+        <h2 class="section__name">Pregações</h2>
+        <h1 class="section__title">{{pregacao?.title}}</h1>
+        <span class="section__meta date">{{$safeNavigationMigration(pregacao?.date) | date: "fullDate"}}</span>
+        <span class="section__meta author">{{pregacao?.preacher}}</span>
+      </a>
     </div>
 
     <div class="section__item section__item--word">
 
-        <app-loading *ngIf="loading$ | async "></app-loading>
+      @if (loading$ | async ) {
+        <app-loading></app-loading>
+      }
 
-        <a class="section__link" [routerLink]="['/palavra', artigo?.article_id]">
-            <h2 class="section__name">Palavras do Pastor</h2>
-            <h1 class="section__title">{{artigo?.title}}</h1>
-            <span class="section__meta date">{{artigo?.date| date: "fullDate"}}</span>
-            <span class="section__meta author">{{artigo?.author}}</span>
-        </a>
+      <a class="section__link" [routerLink]="['/palavra', $safeNavigationMigration(artigo?.article_id)]">
+        <h2 class="section__name">Palavras do Pastor</h2>
+        <h1 class="section__title">{{artigo?.title}}</h1>
+        <span class="section__meta date">{{$safeNavigationMigration(artigo?.date)| date: "fullDate"}}</span>
+        <span class="section__meta author">{{artigo?.author}}</span>
+      </a>
     </div>
 
-</section>
+  </section>
 
-<section class="section section--search">
+  <section class="section section--search">
     <form class="form form--search" method="post">
-        <input class="form__control form__control--search" type="text" [(ngModel)]="search" name="search"
-            placeholder="Pesquisar Pregações e Palavras do Pastor" required />
+      <input class="form__control form__control--search" type="text" [(ngModel)]="search" name="search"
+        placeholder="Pesquisar Pregações e Palavras do Pastor" required />
         <button class="btn btn--search" (click)="Search()"><i class="icon icon--search"></i></button>
-    </form>
-</section>
+      </form>
+    </section>

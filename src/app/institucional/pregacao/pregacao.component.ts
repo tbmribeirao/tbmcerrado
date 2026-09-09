@@ -2,14 +2,16 @@ import { LoadingService } from './../../servicos/loading/loading.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PregacaoService } from './../../servicos/pregacao/pregacao.service';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Pregacao } from '../../servicos/pregacao/pregacao';
 
 @Component({
-  selector: 'app-pregacao',
-  templateUrl: './pregacao.component.html',
-  styleUrls: ['pregacao.component.css'
-  ]
+    selector: 'app-pregacao',
+    templateUrl: './pregacao.component.html',
+    styleUrls: ['pregacao.component.css'
+    ],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class PregacaoComponent implements OnInit {
 

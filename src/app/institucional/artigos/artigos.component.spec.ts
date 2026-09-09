@@ -1,6 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { ArtigosComponent } from './artigos.component';
+import { LoadingComponent } from '../../componentes/loading/loading.component';
+import { PaginacaoComponent } from '../../componentes/paginacao/paginacao.component';
+import { ArtigoService } from '../../servicos/artigo/artigo.service';
+import { PaginaService } from '../../servicos/pagina/pagina.service';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('ArtigosComponent', () => {
   let component: ArtigosComponent;
@@ -8,8 +16,10 @@ describe('ArtigosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArtigosComponent ]
-    })
+    declarations: [ArtigosComponent, LoadingComponent, PaginacaoComponent],
+    imports: [RouterTestingModule, FormsModule],
+    providers: [ArtigoService, PaginaService, provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
+})
     .compileComponents();
   });
 

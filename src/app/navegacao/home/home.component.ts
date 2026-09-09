@@ -1,6 +1,6 @@
 import { LoadingService } from '../../servicos/loading/loading.service';
 import { Artigo } from './../../servicos/artigo/artigo';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ArtigoService } from '../../servicos/artigo/artigo.service';
 import { PregacaoService } from '../../servicos/pregacao/pregacao.service';
 import { Pregacao } from '../../servicos/pregacao/pregacao';
@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class HomeComponent implements OnInit {
 
