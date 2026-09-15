@@ -6,11 +6,14 @@
   @if (youtube != null) {
     <div class="video__container">
       @if (IsYoutubeVisible) {
+        <!-- O YouTube exige o Referer para autorizar o player embutido (erro 153 sem ele).
+             O Static Web Apps envia Referrer-Policy: same-origin, que suprime esse header. -->
         <iframe
           class="video"
           [src]="youtube"
           frameborder="0"
           allowfullscreen=""
+          referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
       }
     </div>
