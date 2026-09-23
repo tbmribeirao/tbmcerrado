@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Test
-        run: npx ng test --watch=false --browsers=ChromeHeadless
+        run: npx ng test --watch=false
 
       - name: Build
         run: npx ng build
@@ -47,7 +47,7 @@ jobs:
           ###### Repository/Build Configurations ######
           # Com skip_app_build, app_location aponta para a pasta ja compilada
           # e output_location fica vazio.
-          app_location: "dist/tbm-app"
+          app_location: "dist/tbm-app/browser"
           api_location: ""
           output_location: ""
           skip_app_build: true
