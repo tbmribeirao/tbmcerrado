@@ -37,12 +37,14 @@
         <app-loading></app-loading>
       }
 
-      <a class="section__link" [routerLink]="['/pregacoes', $safeNavigationMigration(pregacao?.cult_id)]">
-        <h2 class="section__name">Pregações</h2>
-        <h1 class="section__title">{{pregacao?.title}}</h1>
-        <span class="section__meta date">{{$safeNavigationMigration(pregacao?.date) | date: "fullDate"}}</span>
-        <span class="section__meta author">{{pregacao?.preacher}}</span>
-      </a>
+      @if (pregacao) {
+        <a class="section__link" [routerLink]="['/pregacoes', pregacao.cult_id]">
+          <h2 class="section__name">Pregações</h2>
+          <h1 class="section__title">{{pregacao.title}}</h1>
+          <span class="section__meta date">{{pregacao.date | date: "fullDate"}}</span>
+          <span class="section__meta author">{{pregacao.preacher}}</span>
+        </a>
+      }
     </div>
 
     <div class="section__item section__item--word">
@@ -51,12 +53,14 @@
         <app-loading></app-loading>
       }
 
-      <a class="section__link" [routerLink]="['/palavra', $safeNavigationMigration(artigo?.article_id)]">
-        <h2 class="section__name">Palavras do Pastor</h2>
-        <h1 class="section__title">{{artigo?.title}}</h1>
-        <span class="section__meta date">{{$safeNavigationMigration(artigo?.date)| date: "fullDate"}}</span>
-        <span class="section__meta author">{{artigo?.author}}</span>
-      </a>
+      @if (artigo) {
+        <a class="section__link" [routerLink]="['/palavra', artigo.article_id]">
+          <h2 class="section__name">Palavras do Pastor</h2>
+          <h1 class="section__title">{{artigo.title}}</h1>
+          <span class="section__meta date">{{artigo.date| date: "fullDate"}}</span>
+          <span class="section__meta author">{{artigo.author}}</span>
+        </a>
+      }
     </div>
 
   </section>
